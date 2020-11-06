@@ -10,7 +10,8 @@ import {
 const initialState = {
     isLoading: false,
     smurfsData: [],
-    error: ''
+    error: '',
+    loadNewSmurf: false,
 }
 
 export const smurfReducer = (state = initialState, action) => {
@@ -37,13 +38,15 @@ export const smurfReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true,
-                error: ''
+                error: '',
+                loadNewSmurf: true,
             }
         case POST_SMURFS_SUCCESS: 
             return {
                 ...state, 
                 isLoading: false,
-                smurfData: action.payload
+                smurfData: action.payload,
+                loadNewSmurf: false,
             }
         case POST_SMURFS_FAILURE:
             return {

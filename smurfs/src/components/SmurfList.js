@@ -6,7 +6,7 @@ import { fetchSmurfs } from '../store/actions'
 const SmurfList = (props) => {
     useEffect(() => {
         props.fetchSmurfs();
-    }, []);
+    }, [props.newSmurf]);
 
     return (
         <div>
@@ -39,7 +39,8 @@ const mapStateToProps = (state) => {
     return {
         isLoading: state.isLoading,
         smurfs: state.smurfsData,
-        error: state.error
+        error: state.error,
+        newSmurf: state.loadNewSmurf
     }
 }
 
